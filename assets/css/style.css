@@ -250,7 +250,7 @@ ul {
 }
 
 .header-topbar {
-  background: var(--navy);
+  background: var(--white);
   padding: 9px 0;
 }
 
@@ -268,7 +268,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 7px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--navy);
   font-size: 13px;
   font-weight: 700;
   text-decoration: none !important;
