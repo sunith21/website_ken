@@ -2153,11 +2153,13 @@ form textarea {
   background: transparent;
   width: 100%;
   -moz-appearance: textfield;
+  appearance: none;
 }
 
 .calc-input-wrap input::-webkit-outer-spin-button,
 .calc-input-wrap input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .calc-input-wrap select {
