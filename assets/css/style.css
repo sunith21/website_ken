@@ -296,7 +296,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90px;
+  height: 85px;
   gap: 24px;
   max-width: none;
   width: 100%;
@@ -1358,26 +1358,33 @@ section.alt {
 }
 
 .social-icon {
-  width: 32px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px; /* Square with rounded corners for a modern app look */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 11px;
-  font-weight: 900;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none !important;
 }
 
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
 .social-icon:hover {
-  background: var(--gold);
-  color: var(--navy);
-  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+.social-icon:hover svg {
+  transform: scale(1.1);
 }
 
 .footer-legal {
