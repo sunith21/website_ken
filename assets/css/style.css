@@ -10,13 +10,16 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--light-blue);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--gold);
   border-radius: 8px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold-dark);
 }
@@ -103,7 +106,7 @@ ul {
   text-decoration: none !important;
   /* Use specific properties — avoids repainting unrelated props */
   transition: background-color 0.22s ease, border-color 0.22s ease,
-              color 0.22s ease, transform 0.15s ease;
+    color 0.22s ease, transform 0.15s ease;
   white-space: nowrap;
 }
 
@@ -293,7 +296,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 90px;
   gap: 24px;
   max-width: none;
   width: 100%;
@@ -421,7 +424,7 @@ ul {
 
 .hero-section {
   background: var(--navy);
-  min-height: 520px;
+  min-height: 600px;
   display: flex;
   align-items: stretch;
   position: relative;
@@ -518,23 +521,23 @@ ul {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-      to right,
+  background: linear-gradient(to right,
       var(--navy) 5%,
       rgba(0, 78, 150, 0.85) 25%,
       rgba(0, 78, 150, 0.3) 65%,
-      rgba(0, 78, 150, 0) 100%
-  );
+      rgba(0, 78, 150, 0) 100%);
   z-index: 1;
 }
 
 .page-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 480px;
+  grid-template-areas: "text image";
+  min-height: 600px;
 }
 
 .page-hero-img-wrap {
+  grid-area: image;
   position: relative;
   overflow: hidden;
 }
@@ -547,11 +550,20 @@ ul {
 
 .page-hero-img-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, transparent 60%, var(--navy) 100%);
+  top: 0;
+  bottom: 0;
+  left: -2px;
+  right: 0;
+  background: linear-gradient(to right,
+      var(--navy) 5%,
+      rgba(0, 78, 150, 0.85) 25%,
+      rgba(0, 78, 150, 0.3) 65%,
+      rgba(0, 78, 150, 0) 100%);
+  z-index: 1;
 }
 
 .page-hero-text {
+  grid-area: text;
   background: var(--navy);
   display: flex;
   flex-direction: column;
@@ -633,12 +645,13 @@ section.alt {
 
 .section-label {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 10px;
+  padding-top: 64px;
 }
 
 .section-heading {
@@ -923,8 +936,8 @@ section.alt {
   box-shadow: var(--shadow-sm);
   /* Specific transitions — avoids repainting all properties */
   transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.22s ease,
-              border-color 0.22s ease;
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
   position: relative;
 }
 
@@ -946,7 +959,7 @@ section.alt {
 }
 
 .card-img {
-  height: 180px;
+  height: 220px;
   overflow: hidden;
 }
 
@@ -954,6 +967,7 @@ section.alt {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 15%;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1269,6 +1283,29 @@ section.alt {
   flex-wrap: wrap;
 }
 
+.cta-disclaimer {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: left;
+  max-width: 100%;
+}
+
+
+
+.cta-disclaimer .footer-disclaimer-list {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 0;
+}
+
+.cta-disclaimer .footer-disclaimer-list li {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  padding: 1px 0;
+}
+
 .site-footer {
   background: var(--navy);
 }
@@ -1351,12 +1388,12 @@ section.alt {
 
 .footer-legal .container {
   display: grid;
-  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   align-items: start;
 }
 
-.footer-legal .container > * {
+.footer-legal .container>* {
   min-width: 0;
 }
 
@@ -1426,7 +1463,6 @@ section.alt {
 .footer-copyright {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.4);
-  margin-top: 10px !important;
 }
 
 .two-col {
@@ -1587,7 +1623,7 @@ form textarea {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reveal.from-left {
@@ -1634,6 +1670,7 @@ form textarea {
   .hero-section {
     grid-template-columns: 1fr;
   }
+
   .hero-section .container {
     display: block;
   }
@@ -1694,7 +1731,8 @@ form textarea {
   .primary-nav {
     display: none;
     position: absolute;
-    top: 70px; /* Below the header main */
+    top: 70px;
+    /* Below the header main */
     left: 0;
     right: 0;
     background: #fff;
@@ -1709,8 +1747,15 @@ form textarea {
   }
 
   @keyframes fadeSlideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .primary-nav ul {
@@ -2219,8 +2264,15 @@ form textarea {
 }
 
 @keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .calc-result-row {
@@ -2281,10 +2333,12 @@ form textarea {
   .calc-row {
     grid-template-columns: 1fr;
   }
+
   .calc-body {
     padding: 24px 20px;
   }
 }
+
 /* ── Preloader ─────────────────────────────────────── */
 #loader {
   position: fixed;
